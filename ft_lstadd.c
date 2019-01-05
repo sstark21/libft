@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 12:06:33 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/10 12:06:42 by sstark           ###   ########.fr       */
+/*   Created: 2019/01/05 19:55:44 by sstark            #+#    #+#             */
+/*   Updated: 2019/01/05 19:55:46 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (ft_tolower(c))
-		return (c + 32);
-	return (c);
+	new->next = *alst;
+	*alst = new;
 }

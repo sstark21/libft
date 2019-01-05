@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 12:06:33 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/10 12:06:42 by sstark           ###   ########.fr       */
+/*   Created: 2019/01/05 19:58:56 by sstark            #+#    #+#             */
+/*   Updated: 2019/01/05 19:58:58 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (ft_tolower(c))
-		return (c + 32);
-	return (c);
+	if (!lst)
+		return (NULL);
+	if (lst->next)
+		ft_lsteter(lst->next, f);
+	f(lst);
 }

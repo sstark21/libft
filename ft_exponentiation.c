@@ -23,6 +23,5 @@ int	ft_exponentiation(int dig, int exp)
 	{
 		c *= dig;
 	}
-	return(c);
+	return (c);
 }
-

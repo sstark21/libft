@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-int		ft_hui(char *str, char c) // word len
+int		ft_hui(char *str, char c)
 {
-	int i;
+	int		i;
 
-	i = !(*str == c);
+	i = (*str != c);
 	while (*str)
 	{
 		if (*str == c)
@@ -31,9 +31,10 @@ int		ft_hui(char *str, char c) // word len
 	}
 	return (i);
 }
-int		ft_lolkek(char const  *str, char c) // char in word counter
+
+int		ft_lolkek(char const *str, char c)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (*str != c && *str++)
@@ -41,10 +42,10 @@ int		ft_lolkek(char const  *str, char c) // char in word counter
 	return (i);
 }
 
-char	*ft_pizda(char const **s, char c) // zapolnenie slov i movement of pointer
+char	*ft_pizda(char const **s, char c)
 {
-	char *rez;
-	int i;
+	char	*rez;
+	int		i;
 
 	i = ft_lolkek(*s, c);
 	rez = ft_strnew(i);
@@ -56,11 +57,10 @@ char	*ft_pizda(char const **s, char c) // zapolnenie slov i movement of pointer
 	return (rez - i);
 }
 
-
 char	**ft_check(char **s, int f)
 {
-	int j;
-	int flag;
+	int		j;
+	int		flag;
 
 	flag = 0;
 	j = f;
@@ -82,8 +82,8 @@ char	**ft_check(char **s, int f)
 
 char	**ft_strsplit(char const *s, char c)
 {
-	int i;
-	char **rez;
+	int		i;
+	char	**rez;
 
 	if (!s)
 		return (NULL);
@@ -91,17 +91,10 @@ char	**ft_strsplit(char const *s, char c)
 	rez = (char **)malloc((i + 1) * sizeof(char *));
 	while (*s && rez)
 	{
-
-		if(*s != c)
+		if (*s != c)
 			*rez++ = ft_pizda(&s, c);
 		else
 			s++;
 	}
 	return (ft_check(rez - i, i));
-}
-
-int main()
-{
-	char **a = ft_strsplit(" b   bbbbbb   323  \n    b", ' ');
-	printf("%s %s %s %s %s", a[0], a[1], a[2], a[3], a[4]);
 }

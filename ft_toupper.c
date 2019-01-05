@@ -10,15 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+#include "libft.h"
+
+int	ft_toupper(int c)
 {
-	if (c >= 141 && c <= 172)
-	{
-		c = c - 40;
-		return (c);
-	}
-	else if (c >= 101 && c <= 132)
-		return (c);
-	else
-		return (0);
+	if (ft_isupper(c))
+		return (c - 32);
+	return (c);
 }

@@ -15,27 +15,17 @@
 
 char    *ft_strsub(char const *s, unsigned int start, size_t len)
 {
-    char *new;
-    int i;
-    int check;
+	char *
+	new;
+	size_t i;
 
-    i = 0;
-    check = ft_strlen((char *)s);
-    new = (char *)malloc(len * sizeof(char));
-    if (start < check) {
-        while (len > 0) {
-            new[i] = s[start];
-            i++;
-            start++;
-            len--;
-        }
-        return (new);
-    }
-    return (NULL);
-}
-
-int main()
-{
-    printf("%s\n", ft_strsub("qwerty", 8, 4));
-    return (0);
+	if (!s)
+		return (NULL);
+	new = ft_strnew(len);
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (i < len)
+		*(new + i++) = *(s + start++);
+	return (new);
 }
