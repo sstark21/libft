@@ -12,9 +12,9 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int i;
-	char *str;
-	char *to_find;
+	int		i;
+	char	*str;
+	char	*to_find;
 
 	str = (char *)haystack;
 	to_find = (char *)needle;
@@ -37,4 +37,3 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		return (0);
 	return (str - i);
 }
-

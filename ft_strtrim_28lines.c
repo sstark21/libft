@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char    *ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-	int j;
-	int k;
-	char *new;
-	char *copy;
+	int		i;
+	int		j;
+	int		k;
+	char	*new;
+	char	*copy;
 
 	i = ft_strlen((char *)s);
 	copy = (char *)s;
@@ -30,22 +29,17 @@ char    *ft_strtrim(char const *s)
 	}
 	while (*s)
 		s++;
-	while ((*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' || *s == ' ' || *s == '\0') && (s != copy))
+	while ((*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' ||
+	*s == ' ' || *s == '\0') && (s != copy))
 	{
 		s--;
 		k++;
 	}
-	new = (char *)malloc( i == j ? i - j - k + 1 : 1);
+	new = (char *)malloc(i == j ? i - j - k + 1 : 1);
 	if (j == k)
 		new[0] = '\0';
 	else
 		ft_memcpy(new, copy + j, i - k - j);
 	new[i - j - k] = '\0';
 	return (new);
-}
-
-int main()
-{
-	printf("%s\n", ft_strtrim("-"));
-	return (0);
 }

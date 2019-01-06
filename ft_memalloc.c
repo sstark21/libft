@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <unistd.h>
-#include <stdio.h>
 
 char	*ft_memalloc(size_t size)
 {
@@ -23,11 +22,4 @@ char	*ft_memalloc(size_t size)
 		return (NULL);
 	ft_memset(c, '0', size);
 	return (c);
-}
-
-
-int main()
-{
-	printf("%s\n", ft_memalloc(-1));
-	return (0);
 }

@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-//size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int len_dst;
 	int i;
 
 	i = 0;
-	len_dst = ft_strlen(dst)ж
+	len_dst = ft_strlen(dst);
 	if (size <= len_dst)
 		return (len_dst + size);
 	else
@@ -33,14 +32,4 @@
 		}
 	}
 	return (len_dst + size);
-}
-
-int main()
-{
-	char s1[10] = "abc";
-	char s2[10] = "abc";
-	printf("%zu\n", ft_strlcat(s1, "def", 4));
-	printf("%lu\n", strlcat(s1, "def", 4));
-	printf("%s = %s\n", s1, s2);
-	return (0);
 }

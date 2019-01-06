@@ -22,6 +22,15 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char const *s, int fd);
+int		ft_islower(int c);
+int		ft_isupper(int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+char    *ft_strsub(char const *s, unsigned int start, size_t len);
+void 	ft_lstdel(t_list**alst,void(*del)(void*, size_t));
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+t_list	*ft_lstnew(void const *content, size_t content_size);
+
 
 
 typedef struct		s_list

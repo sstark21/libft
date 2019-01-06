@@ -15,11 +15,10 @@
 
 void	*ft_memset(void *dest, int c, size_t n)
 {
-	unsigned char *str;
-	int i;
+	unsigned char	*str;
+	int				i;
 
 	i = 0;
-
 	str = (unsigned char *)dest;
 	while (n-- > 0)
 	{

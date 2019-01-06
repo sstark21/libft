@@ -5,19 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 15:37:33 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/10 15:37:37 by sstark           ###   ########.fr       */
+/*   Created: 2018/12/10 17:48:47 by sstark            #+#    #+#             */
+/*   Updated: 2018/12/10 17:48:49 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 char	*ft_strchr(const char *str, int ch)
 {
-	while (*str != (char)ch)
+	char *last_chr;
+
+	last_chr = NULL;
+	while (*str != '\0')
 	{
-		if (!*str++)
-			return (NULL);
+		if (*str == (char)ch)
+			last_chr = (char *)str;
+		str++;
 	}
-	return ((char *)str);
+	if (*str == (char)ch)
+		return ((char *)str);
+	else
+		return (last_chr);
 }
