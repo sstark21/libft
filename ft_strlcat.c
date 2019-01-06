@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 11:12:56 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/26 11:12:58 by sstark           ###   ########.fr       */
+/*   Created: 2018/12/17 16:50:23 by sstark            #+#    #+#             */
+/*   Updated: 2018/12/17 16:50:26 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strnew(size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char *c;
+	size_t	len_dst;
+	int		i;
+	size_t	help;
+	size_t	len_src;
 
-	if (size > 0)
+	i = 0;
+	help = ft_strlen(dst);
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen((char *)src);
+	if (size < len_dst + 1)
+		return (len_src + size);
+	if (size > len_dst + 1)
 	{
-		c = (char *)malloc((size + 1) * sizeof(char));
-		ft_bzero(c, size + 1);
-		return (c);
+		while (help < size - 1)
+			*(dst + help++) = *(src + i++);
+		*(dst + help) = '\0';
 	}
-	else
-		return (NULL);
+	return (len_dst + len_src);
 }

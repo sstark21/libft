@@ -11,39 +11,28 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_itoa(int n)
 {
-	int			flag;
 	long int	len;
 	int			i;
 	char		*new;
 	int			j;
 
 	j = 0;
-	flag = 1;
 	len = n;
-	while (len != 0)
-	{
-		len /= 10;
+	while (len /= 10)
 		i++;
-	}
 	new = (char *)malloc(i + 1);
 	len = n;
 	if (len < 0)
 	{
-		new[j] = '-';
-		j++;
+		new[j++] = '-';
 		len *= -1;
 	}
 	new[i + j] = '\0';
 	if (len == 0)
-	{
-		new = (char *)malloc(1);
-		*new = '0';
-		return (new);
-	}
+		return ("0\0");
 	while (i--)
 	{
 		new[j++] = (len / ft_exponentiation(10, i) + '0');

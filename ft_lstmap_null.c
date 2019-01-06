@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 16:50:23 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/17 16:50:26 by sstark           ###   ########.fr       */
+/*   Created: 2019/01/06 15:54:31 by sstark            #+#    #+#             */
+/*   Updated: 2019/01/06 15:54:33 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int len_dst;
-	int i;
 
-	i = 0;
-	len_dst = ft_strlen(dst);
-	if (size <= len_dst)
-		return (len_dst + size);
-	else
-	{
-		while (size)
-		{
-			dst[len_dst] = src[i];
-			len_dst++;
-			i++;
-			size--;
-		}
-	}
-	return (len_dst + size);
 }

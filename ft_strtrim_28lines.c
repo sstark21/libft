@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s)
 {
@@ -42,4 +43,9 @@ char	*ft_strtrim(char const *s)
 		ft_memcpy(new, copy + j, i - k - j);
 	new[i - j - k] = '\0';
 	return (new);
+}
+
+int main()
+{
+	printf("%s\n", ft_strtrim("j "));
 }
