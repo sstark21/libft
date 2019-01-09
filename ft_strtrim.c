@@ -22,6 +22,7 @@ char	*ft_strtrim(char const *s)
 	char	*copy;
 
 	i = ft_strlen((char *)s);
+	printf("i = %d\n", i);
 	copy = (char *)s;
 	while (*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' || *s == ' ')
 	{
@@ -30,22 +31,24 @@ char	*ft_strtrim(char const *s)
 	}
 	while (*s)
 		s++;
+	printf("j = %d\n", j);
 	while ((*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' ||
 	*s == ' ' || *s == '\0') && (s != copy))
 	{
 		s--;
 		k++;
 	}
+	printf("k = %d\n", k);
 	new = (char *)malloc(i == j ? i - j - k + 1 : 1);
 	if (j == k)
 		new[0] = '\0';
 	else
-		ft_memcpy(new, copy + j, i - k - j);
-	new[i - j - k] = '\0';
+		ft_memcpy(new, copy + j, i - k - j + 1);
+	new[i - j - k + 1] = '\0';
 	return (new);
 }
 
 int main()
 {
-	printf("%s\n", ft_strtrim("j "));
+	printf("%s\n", ft_strtrim(" f g"));
 }
