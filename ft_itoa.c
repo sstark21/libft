@@ -19,16 +19,16 @@ char	*ft_itoa(int n)
 	char		*new;
 	int			j;
 
+	i = 0;
 	j = 0;
 	len = n;
-	while (len /= 10)
+	while (n /= 10)
 		i++;
 	new = (char *)malloc(i + 1);
-	len = n;
-	if (len < 0)
+	if (len = n < 0)
 	{
 		new[j++] = '-';
-		len *= -1;
+		len = -len;
 	}
 	new[i + j] = '\0';
 	if (len == 0)

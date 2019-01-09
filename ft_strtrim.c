@@ -11,44 +11,39 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strtrim(char const *s)
+static	void	help(size_t *begin, size_t *end, char const *s)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*new;
-	char	*copy;
+	size_t		i;
 
-	i = ft_strlen((char *)s);
-	printf("i = %d\n", i);
-	copy = (char *)s;
-	while (*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' || *s == ' ')
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	*begin = i;
+	*end = i + 1;
+	while (s[i])
 	{
-		j++;
-		s++;
+		if (!(s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+			*end = i + 1;
+		i++;
 	}
-	while (*s)
-		s++;
-	printf("j = %d\n", j);
-	while ((*s == '\t' || *s == '\n' || *s == '\v' || *s == '\r' ||
-	*s == ' ' || *s == '\0') && (s != copy))
-	{
-		s--;
-		k++;
-	}
-	printf("k = %d\n", k);
-	new = (char *)malloc(i == j ? i - j - k + 1 : 1);
-	if (j == k)
-		new[0] = '\0';
-	else
-		ft_memcpy(new, copy + j, i - k - j + 1);
-	new[i - j - k + 1] = '\0';
-	return (new);
 }
 
-int main()
+char			*ft_strtrim(char const *s)
 {
-	printf("%s\n", ft_strtrim(" f g"));
+	size_t		begin;
+	size_t		end;
+	size_t		alloc;
+	char		*dst;
+
+	if (s == NULL)
+		return (NULL);
+	help(&begin, &end, s);
+	alloc = end - begin + 1;
+	dst = (char*)malloc(alloc);
+	if (!dst)
+		return (NULL);
+	ft_strncpy(dst, &s[begin], end - begin);
+	dst[end - begin] = '\0';
+	return (dst);
 }

@@ -16,10 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int i;
 
-	i = 0;
-	while (*s)
-	{
-		s[i] = f(i, s[i]);
-		i++;
-	}
+	i = -1;
+	while (s && f)
+		while (*(s + ++i))
+			f(i, s + i);
 }

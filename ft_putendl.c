@@ -17,5 +17,5 @@ void	ft_putstr(char const *c)
 {
 	if (c)
 		write(1, c, ft_strlen((char *)c));
-	write(1, '\n', 1);
+	write(1, "\n", 1);
 }

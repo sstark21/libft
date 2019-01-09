@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_hui(char *str, char c)
+static int		ft_hui(char *str, char c)
 {
 	int		i;
 
@@ -32,7 +32,7 @@ int		ft_hui(char *str, char c)
 	return (i);
 }
 
-int		ft_lolkek(char const *str, char c)
+static	int		ft_lolkek(char const *str, char c)
 {
 	int		i;
 
@@ -42,7 +42,7 @@ int		ft_lolkek(char const *str, char c)
 	return (i);
 }
 
-char	*ft_pizda(char const **s, char c)
+static	char	*ft_pizda(char const **s, char c)
 {
 	char	*rez;
 	int		i;
@@ -57,7 +57,7 @@ char	*ft_pizda(char const **s, char c)
 	return (rez - i);
 }
 
-char	**ft_check(char **s, int f)
+static	char	**ft_check(char **s, int f)
 {
 	int		j;
 	int		flag;
@@ -80,7 +80,7 @@ char	**ft_check(char **s, int f)
 	return (flag ? NULL : s);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	char	**rez;
