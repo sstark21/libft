@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 int		ft_atoi(char *str);
 void	ft_bzero(void *str, size_t len);
@@ -16,12 +17,12 @@ int		ft_islower(int c);
 int		ft_isprint(int c);
 int		ft_isupper(int c);
 char	*ft_itoa(int n);
-void	ft_lstadd(t_list **alst, t_list *new);
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list	*ft_lstnew(void const *content, size_t content_size);
+//void	ft_lstadd(t_list **alst, t_list *new);
+//void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+//void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+//void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+//t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+//t_list	*ft_lstnew(void const *content, size_t content_size);
 char	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void	*ft_memchr(char *c, int i, size_t j);
@@ -51,9 +52,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_strlen(char *c);
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	ft_strncat(char *s1, const char *s2, sixe_t n);
+char	ft_strncat(char *s1, const char *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strncpy(char *s1, const char *s1, size_t n);
+char	*ft_strncpy(char *s1, const char *s2, size_t n);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strnew(size_t size);
 char	*strnstr(const char *haystack, const char *needle, size_t hlen);
