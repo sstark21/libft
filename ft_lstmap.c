@@ -24,8 +24,8 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		first = ft_lstnew(lst->content, lst->content_size);
 		if (first == NULL)
 			return (NULL);
-		first = f(first);
 		prev = first;
+		first = f(first);
 		lst = lst->next;
 	}
 	while (lst != NULL)

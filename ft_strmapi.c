@@ -14,17 +14,22 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	unsigned		j;
-	char			*c;
+	size_t			c;
+	char			*t;
+	unsigned int	j;
 
-	i = ft_strlen((char *)s);
+	if (s == NULL || f == NULL)
+		return (NULL);
+	c = ft_strlen((char *)s);
+	t = (char *)malloc((c + 1) * sizeof(char));
+	if (t == NULL)
+		return (NULL);
 	j = 0;
-	c = (char *)malloc(i * sizeof(char));
-	while (j != i)
+	while (j < c)
 	{
-		c[j] = f(i, s[j]);
+		t[j] = f(j, s[j]);
 		j++;
 	}
-	return (c);
+	t[j] = '\0';
+	return (t);
 }

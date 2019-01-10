@@ -14,11 +14,14 @@
 
 char	*ft_memalloc(size_t size)
 {
-	void *c;
+	char		*area;
+	char		*cp;
 
-	c = malloc(size);
-	if (!c)
+	area = (char*)malloc(size);
+	if (area == NULL)
 		return (NULL);
-	ft_memset(c, '0', size);
-	return (c);
+	cp = area;
+	while (size--)
+		*cp++ = (char)0;
+	return ((void*)area);
 }
