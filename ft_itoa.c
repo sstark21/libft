@@ -17,26 +17,26 @@ char	*ft_itoa(int n)
 	long int	len;
 	int			i;
 	char		*new;
-	int			j;
+	int 		sign;
 
-	i = 0;
-	j = 0;
-	len = n;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	sign = n < 0 ? 1 : 0;
+	i = 1;
+	len = n < 0 ? -n : n;
 	while (n /= 10)
 		i++;
-	new = (char *)malloc(i + 1);
-	if (len = n < 0)
-	{
-		new[j++] = '-';
-		len = -len;
-	}
-	new[i + j] = '\0';
+	if (!(new = (char *)malloc(i + sign + 1)))
+		return (new);
+	if (sign)
+		*new++ = '-';
+	new[i] = '\0';
 	if (len == 0)
-		return ("0\0");
+		return (ft_strcpy(new, "0"));
 	while (i--)
 	{
-		new[j++] = (len / ft_exponentiation(10, i) + '0');
-		len -= (len / ft_exponentiation(10, i)) * ft_exponentiation(10, i);
+		new[i] = (len % 10 + '0');
+		len /= 10;
 	}
-	return (new);
+	return (new - sign);
 }

@@ -18,8 +18,7 @@ char	*ft_strchr(const char *str, int ch)
 	int		i;
 
 	i = 0;
-	first_chr = NULL;
-	while (str[i] != ch)
+	while (str[i] != ch && str[i])
 		i++;
-	return (first_chr = (char *)(str + i));
+	return (first_chr = str[i] == ch ? (char *)(str + i) : NULL);
 }

@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
-	if (c >= 60 && c <= 71 && c >= 101 && c <= 172)
-		return (c);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	else
 		return (0);
 }

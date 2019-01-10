@@ -10,15 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	*ft_memchr(char *c, int i, size_t j)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*c)
-	{
-		if (c[j] == i)
-			return (c + j);
-		j++;
-	}
+	const char	*str;
+	size_t		i;
+
+	str = (const char *)s;
+	i = -1;
+	while (++i < n)
+		if (*(str + i) == (char)c)
+			return ((void *)str + i);
 	return (NULL);
 }

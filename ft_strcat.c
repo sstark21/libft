@@ -14,10 +14,13 @@
 
 char	*ft_strcat(char *dest, const char *add)
 {
+	char *cpydest;
+
+	cpydest = dest;
 	while (*dest)
 		dest++;
 	while (*add)
 		*dest++ = *add++;
 	*dest = '\0';
-	return ((char *)dest);
+	return (cpydest);
 }

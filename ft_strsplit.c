@@ -16,7 +16,7 @@ static int		ft_hui(char *str, char c)
 {
 	int		i;
 
-	i = (*str != c);
+	i = (*str != c && *str);
 	while (*str)
 	{
 		if (*str == c)
@@ -66,15 +66,15 @@ static	char	**ft_check(char **s, int f)
 	j = f;
 	if (!s)
 		return (NULL);
-	while (j > -1)
+	while (j > 0)
 	{
-		if (!s[j--])
+		if (!s[j-- - 1])
 			flag = 1;
 	}
 	if (flag)
 	{
 		while (f > -1)
-			ft_memdel((void *)s[f--]);
+			ft_memdel((void *)&s[f--]);
 		free(s);
 	}
 	return (flag ? NULL : s);
@@ -88,7 +88,9 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	i = ft_hui((char *)s, c);
-	rez = (char **)malloc((i + 1) * sizeof(char *));
+	if (!(rez = (char **)malloc((i + 1) * sizeof(char *))))
+		return (NULL);
+	rez[i] = NULL;
 	while (*s && rez)
 	{
 		if (*s != c)

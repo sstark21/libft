@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 char	*ft_memalloc(size_t size)
 {

@@ -36,14 +36,19 @@ int			ft_atoi(char *str)
 	int rez;
 
 	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v')
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
+	|| *str == '\r' || *str == '\f')
 		str++;
 	if (*str == '-')
 		sign = -1;
 	if (*str == '+' || *str == '-')
 		str++;
-	while (*str >= '0' && *str <= '9')
-		str++;
-	rez = ft_help(str - 1, sign);
+	rez = 0;
+	if (*str >= '0' && *str <= '9')
+	{
+		while (*str >= '0' && *str <= '9')
+			str++;
+		rez = ft_help(str - 1, sign);
+	}
 	return (rez * sign);
 }

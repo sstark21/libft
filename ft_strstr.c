@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int		i;
@@ -19,7 +21,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	str = (char *)haystack;
 	to_find = (char *)needle;
 	i = 0;
-	while (*to_find != '\0' && *str != '\0')
+	while (*to_find && *str)
 	{
 		if (*str == *to_find)
 		{
@@ -29,11 +31,12 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		else
 		{
 			to_find -= i;
+			str -= i;
 			i = 0;
 		}
 		str++;
 	}
 	if (*to_find != '\0')
-		return (0);
+		return (NULL);
 	return (str - i);
 }
