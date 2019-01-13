@@ -6,13 +6,13 @@
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 20:53:43 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/29 20:53:45 by sstark           ###   ########.fr       */
+/*   Updated: 2019/01/13 19:51:01 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_hui(char *str, char c)
+static int		ft_wordnbr(char *str, char c)
 {
 	int		i;
 
@@ -32,7 +32,7 @@ static int		ft_hui(char *str, char c)
 	return (i);
 }
 
-static	int		ft_lolkek(char const *str, char c)
+static	int		ft_letternbr(char const *str, char c)
 {
 	int		i;
 
@@ -42,12 +42,12 @@ static	int		ft_lolkek(char const *str, char c)
 	return (i);
 }
 
-static	char	*ft_pizda(char const **s, char c)
+static	char	*ft_movecpy(char const **s, char c)
 {
 	char	*rez;
 	int		i;
 
-	i = ft_lolkek(*s, c);
+	i = ft_letternbr(*s, c);
 	rez = ft_strnew(i);
 	while (**s != c && **s)
 	{
@@ -87,14 +87,14 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	i = ft_hui((char *)s, c);
+	i = ft_wordnbr((char *)s, c);
 	if (!(rez = (char **)malloc((i + 1) * sizeof(char *))))
 		return (NULL);
 	rez[i] = NULL;
 	while (*s && rez)
 	{
 		if (*s != c)
-			*rez++ = ft_pizda(&s, c);
+			*rez++ = ft_movecpy(&s, c);
 		else
 			s++;
 	}
