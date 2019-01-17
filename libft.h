@@ -6,7 +6,7 @@
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 20:38:53 by sstark            #+#    #+#             */
-/*   Updated: 2019/01/09 20:38:56 by sstark           ###   ########.fr       */
+/*   Updated: 2019/01/17 17:10:18 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *s1, const char *s2, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);
+int					ft_strnlen(char const *str, char c);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t hlen);
 char				*ft_strrchr(const char *str, int ch);
@@ -75,6 +76,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_wordnbr(char *str, char c);
 
 typedef struct		s_list
 {

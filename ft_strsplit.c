@@ -6,49 +6,21 @@
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 20:53:43 by sstark            #+#    #+#             */
-/*   Updated: 2019/01/13 19:51:01 by sstark           ###   ########.fr       */
+/*   Updated: 2019/01/17 17:12:51 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		ft_wordnbr(char *str, char c)
-{
-	int		i;
-
-	i = (*str != c && *str);
-	while (*str)
-	{
-		if (*str == c)
-		{
-			while (*str == c && *str)
-				str++;
-			if (*str)
-				i++;
-		}
-		if (*str)
-			str++;
-	}
-	return (i);
-}
-
-static	int		ft_letternbr(char const *str, char c)
-{
-	int		i;
-
-	i = 0;
-	while (*str != c && *str++)
-		i++;
-	return (i);
-}
 
 static	char	*ft_movecpy(char const **s, char c)
 {
 	char	*rez;
 	int		i;
 
-	i = ft_letternbr(*s, c);
+	i = ft_strnlen(*s, c);
 	rez = ft_strnew(i);
+	if (!rez)
+		return (NULL);
 	while (**s != c && **s)
 	{
 		*rez++ = **s;
