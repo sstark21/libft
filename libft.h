@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 
-int					ft_atoi(char *str);
+int					ft_atoi(const char *str);
 void				ft_bzero(void *str, size_t len);
 int					ft_exponentiation(int dig, int exp);
 int					ft_isalnum(int c);
