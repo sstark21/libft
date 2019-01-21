@@ -6,7 +6,7 @@
 /*   By: sstark <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 19:44:36 by sstark            #+#    #+#             */
-/*   Updated: 2018/12/26 19:44:38 by sstark           ###   ########.fr       */
+/*   Updated: 2019/01/21 17:20:43 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	while (i < len)
-		*(new + i++) = *(s + start++);
+	{
+		new[i] = s[start + i];
+		i++;
+	}
+	new[i] = '\0';
 	return (new);
 }
